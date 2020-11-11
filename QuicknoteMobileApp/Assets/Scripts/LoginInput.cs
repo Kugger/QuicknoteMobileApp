@@ -21,7 +21,7 @@ public class LoginInput : MonoBehaviour
 
     public void OpenKeyboard () 
     {
-        keyboard = TouchScreenKeyboard.Open("Hello", TouchScreenKeyboardType.Default);
+        keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.Default);
     }
 
     /*
