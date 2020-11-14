@@ -12,6 +12,6 @@ public class DataTest : MonoBehaviour
     {
         string time = System.DateTime.UtcNow.ToLocalTime().ToString("dd-MM-yyyy   HH:mm");
 
-        dataText.text = time;
+        dataText.text = "Today is " + time;
     }
 }
