@@ -10,16 +10,14 @@ public class AddTask : MonoBehaviour
 
     public InputField descripiton;
 
-    public Button createButton;
+    string m_Message;
 
-    // Update is called once per frame
-    void Update()
+    public void createButtonPressed() 
     {
-        if(createButton == true)
-        {
-            Debug.Log(category);
-            Debug.Log(year);
-            Debug.Log(descripiton);
-        }
+        m_Message = category.options[category.value].text;
+
+        Debug.Log(m_Message);
+        Debug.Log(year.value);
+        Debug.Log(descripiton);
     }
 }
