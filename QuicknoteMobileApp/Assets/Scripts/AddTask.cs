@@ -21,7 +21,7 @@ public class AddTask : MonoBehaviour
         sDay = day.options[day.value].text;
         sColour = colour.options[colour.value].text;
 
-        Debug.Log(sCategory + " " + sType + " " + sYear + " " + sMonth + " " + sDay + " " + sColour);
+        Debug.Log("Category: " + sCategory + " | " + "Type: " + sType + " | " + "Year: " + sYear + " | " + "Month: " + sMonth + " | " + "Day: " + sDay + " | " + "Colour: " + sColour);
         Debug.Log(descripiton);
     }
 }
