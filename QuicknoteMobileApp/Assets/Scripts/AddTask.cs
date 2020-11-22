@@ -23,5 +23,12 @@ public class AddTask : MonoBehaviour
 
         Debug.Log("Category: " + sCategory + " | " + "Type: " + sType + " | " + "Year: " + sYear + " | " + "Month: " + sMonth + " | " + "Day: " + sDay + " | " + "Colour: " + sColour);
         Debug.Log(descripiton);
+
+        category.value = 0;
+        type.value = 0;
+        year.value = 0;
+        month.value = 0;
+        day.value = 0;
+        colour.value = 0;
     }
 }
