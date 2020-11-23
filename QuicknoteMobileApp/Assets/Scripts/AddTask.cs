@@ -10,7 +10,9 @@ public class AddTask : MonoBehaviour
 
     public InputField descripiton;
 
-    string sCategory, sType, sYear, sMonth, sDay, sColour;
+    string sCategory, sType, sYear, sMonth, sDay, sColour, sDescription;
+
+    public Text tDescription;
 
     public void createButtonPressed() 
     {
@@ -21,8 +23,10 @@ public class AddTask : MonoBehaviour
         sDay = day.options[day.value].text;
         sColour = colour.options[colour.value].text;
 
+        sDescription = descripiton.text;
+
         Debug.Log("Category: " + sCategory + " | " + "Type: " + sType + " | " + "Year: " + sYear + " | " + "Month: " + sMonth + " | " + "Day: " + sDay + " | " + "Colour: " + sColour);
-        Debug.Log(descripiton);
+        Debug.Log(sDescription);
 
         category.value = 0;
         type.value = 0;
