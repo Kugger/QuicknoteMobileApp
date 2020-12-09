@@ -2,22 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Task : MonoBehaviour
+[CreateAssetMenu(fileName = "New Task", menuName = "Task")]
+public class Task : ScriptableObject
 {
-
+    public string sCategory;
+    public string sType;
+    public string sYear;
+    public string sMonth;
+    public string sDay;
+    public string sColour;
+    public string sDescription;
+    
 
     //  new branch test
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

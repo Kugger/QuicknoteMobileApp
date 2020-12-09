@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class AddTask : MonoBehaviour
 {
+    public Task task;
+
     public Dropdown category, type, year, month, day, colour;
 
     public InputField descripiton;
