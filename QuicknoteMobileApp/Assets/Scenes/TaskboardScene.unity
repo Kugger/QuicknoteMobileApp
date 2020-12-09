@@ -6837,6 +6837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b890e72d9ca55649856c155f6d8ee0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  task: {fileID: 0}
   category: {fileID: 1839501825}
   type: {fileID: 803986461}
   year: {fileID: 1500603505}
