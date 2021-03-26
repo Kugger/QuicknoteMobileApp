@@ -49,8 +49,11 @@ public class StatsManager : MonoBehaviour
     public Button encoji3;
     public Button encoji4;
 
+    public Image displayEncoji;
+
     void Start()
     {
+
         var presentDateAndTime = System.DateTime.Now.ToLocalTime();
 
         intDay = int.Parse(presentDateAndTime.ToString("dd"));
@@ -67,11 +70,12 @@ public class StatsManager : MonoBehaviour
         intOldYear = int.Parse(presentDateAndTime.ToString("yyyy"));
         intNewYear = intOldYear + 1;
 
-        /* do testow
+
+        /*
         intDay = 1;
-        intMonth = 1;
-        intOldMonth = 1;
-        intNewMonth = 1;
+        intMonth = 4;
+        intOldMonth = 4;
+        intNewMonth = 5;
         */
     }
 
@@ -92,7 +96,6 @@ public class StatsManager : MonoBehaviour
         DeletedTaskValueText.text = maxDeletedValue.ToString();
 
         //intDisplayed = PlayerPrefs.GetInt("intDisplayed");
-
 
         if (maxDoneValue < 10)
         {
@@ -161,7 +164,29 @@ public class StatsManager : MonoBehaviour
         }
 
 
+        int dec = PlayerPrefs.GetInt("EncojiChoice");
+
+
+        switch (dec)
+        {
+            case 1:
+                displayEncoji.sprite = encoji1.GetComponent<Image>().sprite;
+                break;
+            case 2:
+                displayEncoji.sprite = encoji2.GetComponent<Image>().sprite;
+                break;
+            case 3:
+                displayEncoji.sprite = encoji3.GetComponent<Image>().sprite;
+                break;
+            case 4:
+                displayEncoji.sprite = encoji4.GetComponent<Image>().sprite;
+                break;
+        }
+
+
         monthIntInfoNow = PlayerPrefs.GetInt("taskCounterMonth");
+
+        Debug.Log(monthIntInfoNow + " " + monthIntInfoPast);
 
         if (intDay == 1 & displayed3 == false)
         {
@@ -170,12 +195,7 @@ public class StatsManager : MonoBehaviour
                 DisplayInfoPanel.SetActive(true);
                 displayText.text = "Congratulations! ";
 
-                if (monthIntInfoPast == 0)
-                {
-                    displayText.text += "In this month you finished " + monthIntInfoNow + " tasks!";
-                    monthIntInfoPast = monthIntInfoNow;
-                }
-                else
+                if (monthIntInfoPast != 0)
                 {
                     dif1 = monthIntInfoNow - monthIntInfoPast;
 
@@ -188,6 +208,11 @@ public class StatsManager : MonoBehaviour
 
                     monthIntInfoPast = monthIntInfoNow;
                 }
+                else
+                {
+                    displayText.text += "In this month you finished " + monthIntInfoNow + " tasks!";
+                    //monthIntInfoPast = monthIntInfoNow;
+                }
 
                 displayButton.onClick.AddListener(hideDisplayInfo);
                 displayed3 = true;
@@ -198,6 +223,8 @@ public class StatsManager : MonoBehaviour
 
         yearIntInfoNow = PlayerPrefs.GetInt("taskCounterYear");
 
+
+
         if (intDay == 1 & intMonth == 1 & displayed4 == false)
         {
             if (displayed4 == false)
@@ -205,13 +232,10 @@ public class StatsManager : MonoBehaviour
                 DisplayInfoPanel.SetActive(true);
                 displayText.text = "Congratulations! ";
 
-                if (yearIntInfoPast == 0)
+                if (yearIntInfoPast != 0)
                 {
-                    displayText.text += "In this year you finished " + yearIntInfoNow + " tasks!";
-                    yearIntInfoPast = yearIntInfoNow;
-                }
-                else
-                {
+                    Debug.Log("em i happing?");
+
                     dif2 = yearIntInfoNow - yearIntInfoPast;
 
                     if (dif2 == 0)
@@ -223,6 +247,11 @@ public class StatsManager : MonoBehaviour
 
                     yearIntInfoPast = yearIntInfoNow;
                 }
+                else
+                {
+                    displayText.text += "In this year you finished " + yearIntInfoNow + " tasks!";
+                    yearIntInfoPast = yearIntInfoNow;
+                }
 
                 displayButton.onClick.AddListener(hideDisplayInfo);
                 displayed4 = true;
@@ -231,11 +260,33 @@ public class StatsManager : MonoBehaviour
             }            
         }
 
+        //Debug.Log(monthIntInfoNow + " " + monthIntInfoPast);
         //Debug.Log(intDay + " " + intMonth + " " + intNewMonth + " " + intOldMonth + " " + intNewYear + " " + intOldYear);
     }
 
     void hideDisplayInfo()
     {
         DisplayInfoPanel.SetActive(false);
+    }
+
+    public void Encoji1()
+    {
+        PlayerPrefs.SetInt("EncojiChoice", 1);
+        Debug.Log("dzialam" + PlayerPrefs.GetInt("EncojiChoice"));
+    }
+
+    public void Encoji2()
+    {
+        PlayerPrefs.SetInt("EncojiChoice", 2);
+    }
+
+    public void Encoji3()
+    {
+        PlayerPrefs.SetInt("EncojiChoice", 3);
+    }
+
+    public void Encoji4()
+    {
+        PlayerPrefs.SetInt("EncojiChoice", 4);
     }
 }
