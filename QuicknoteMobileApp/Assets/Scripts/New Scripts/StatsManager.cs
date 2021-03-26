@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StatsManager : MonoBehaviour
 {
@@ -26,23 +27,23 @@ public class StatsManager : MonoBehaviour
     bool displayed3;
     bool displayed4;
 
-    public int intDay;
-    public int intMonth;
-    public int intOldMonth;
-    public int intNewMonth;
-    public int intOldYear;
-    public int intNewYear;
+    int intDay;
+    int intMonth;
+    int intOldMonth;
+    int intNewMonth;
+    int intOldYear;
+    int intNewYear;
 
     public GameObject ActualDateAndTimeScript;
     ActualDateAndTime presentDateAndTime;
 
-    public int monthIntInfoNow;
-    public int monthIntInfoPast;
+    int monthIntInfoNow;
+    int monthIntInfoPast;
 
-    public int yearIntInfoNow;
-    public int yearIntInfoPast;
+    int yearIntInfoNow;
+    int yearIntInfoPast;
 
-    public int dif1, dif2;
+    int dif1, dif2;
 
     public Button encoji1;
     public Button encoji2;
@@ -50,6 +51,8 @@ public class StatsManager : MonoBehaviour
     public Button encoji4;
 
     public Image displayEncoji;
+
+    public Button closeAppButton;
 
     void Start()
     {
@@ -108,11 +111,11 @@ public class StatsManager : MonoBehaviour
             encoji3.interactable = false;
             encoji4.interactable = false;
         }
-        else if (maxDoneValue > 10 & maxDoneValue < 25 & displayed == false)
+        else if (maxDoneValue > 10 & maxDoneValue < 35 & displayed == false)
         {
             nowLevel.text = "2";
             nextLevel.text = "3";
-            levelSlider.maxValue = 25;
+            levelSlider.maxValue = 35;
             levelSlider.value = maxDoneValue;
 
             if (displayed == false)
@@ -127,11 +130,11 @@ public class StatsManager : MonoBehaviour
             encoji3.interactable = false;
             encoji4.interactable = false;
         }
-        else if (maxDoneValue > 25 & maxDoneValue < 50 & displayed1 == false)
+        else if (maxDoneValue > 35 & maxDoneValue < 85 & displayed1 == false)
         {
             nowLevel.text = "3";
             nextLevel.text = "4";
-            levelSlider.maxValue = 50;
+            levelSlider.maxValue = 85;
             levelSlider.value = maxDoneValue;
 
             if (displayed1 == false)
@@ -145,11 +148,11 @@ public class StatsManager : MonoBehaviour
             encoji3.interactable = true;
             encoji4.interactable = false;
         }
-        else if (maxDoneValue > 50 & maxDoneValue < 100 & displayed2 == false)
+        else if (maxDoneValue > 85 & maxDoneValue < 185 & displayed2 == false)
         {
             nowLevel.text = "4";
             nextLevel.text = "5";
-            levelSlider.maxValue = 100;
+            levelSlider.maxValue = 185;
             levelSlider.value = maxDoneValue;
 
             if (displayed2 == false)
@@ -288,5 +291,10 @@ public class StatsManager : MonoBehaviour
     public void Encoji4()
     {
         PlayerPrefs.SetInt("EncojiChoice", 4);
+    }
+
+    public void CloseApp()
+    {
+        Application.Quit();
     }
 }
