@@ -89,6 +89,9 @@ public class CreateTask : MonoBehaviour
     int doneValue;
     int deletedValue;
 
+    public int taskCounterMonth;
+    public int taskCounterYear;
+
     // tymczasowa klasa
     public class NewTaskList
     {
@@ -383,6 +386,10 @@ public class CreateTask : MonoBehaviour
         doneValue = PlayerPrefs.GetInt("maxDoneValue");
 
         deletedValue = PlayerPrefs.GetInt("maxDeletedValue");
+
+        taskCounterMonth = PlayerPrefs.GetInt("taskCounterMonth");
+
+        taskCounterYear = PlayerPrefs.GetInt("taskCounterYear");
     }
 
     public void CreateNewTask()
@@ -454,6 +461,12 @@ public class CreateTask : MonoBehaviour
 
         doneValue++;
         PlayerPrefs.SetInt("doneValueAdd", doneValue);
+
+        taskCounterMonth++;
+        PlayerPrefs.SetInt("taskCounterMonth", taskCounterMonth);
+
+        taskCounterYear++;
+        PlayerPrefs.SetInt("taskCounterYear", taskCounterYear);
 
         saveTaskToJson();
         Destroy(task.gameObject);
