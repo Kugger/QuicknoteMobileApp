@@ -89,6 +89,7 @@ public class CreateTask : MonoBehaviour
     int doneValue;
     int deletedValue;
 
+    // tymczasowa klasa
     public class NewTaskList
     {
         public string objTitle;
