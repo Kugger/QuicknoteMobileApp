@@ -396,6 +396,17 @@ public class CreateTask : MonoBehaviour
             placeholderText.SetActive(true);
         else
             placeholderText.SetActive(false);
+
+        if (TitleField.text == "")
+        {
+            invalidDateAndTimeText.SetActive(true);
+            CreateTaskButton.interactable = false;
+        } else
+        {
+            invalidDateAndTimeText.SetActive(false);
+            CreateTaskButton.interactable = true;
+        }
+            
     }
 
     public void CreateNewTask()
