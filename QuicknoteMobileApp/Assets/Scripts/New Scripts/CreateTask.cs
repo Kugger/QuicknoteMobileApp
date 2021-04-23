@@ -16,6 +16,7 @@ public class CreateTask : MonoBehaviour
     public GameObject taskItemPrefab;
     public GameObject ActualDateAndTimeScript;
     public GameObject invalidDateAndTimeText;
+    public GameObject placeholderText;
 
     [Header("Inputs")]
     public InputField TitleField;
@@ -390,6 +391,11 @@ public class CreateTask : MonoBehaviour
         taskCounterMonth = PlayerPrefs.GetInt("taskCounterMonth");
 
         taskCounterYear = PlayerPrefs.GetInt("taskCounterYear");
+
+        if (tasksList.Count == 0)
+            placeholderText.SetActive(true);
+        else
+            placeholderText.SetActive(false);
     }
 
     public void CreateNewTask()
